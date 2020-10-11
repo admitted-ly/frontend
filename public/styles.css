@@ -15,6 +15,10 @@ body {
 	font-family: 'Nunito', sans-serif;
 }
 
+.color-green{
+	color: #10D48E !important;
+}
+
 h3{
 	line-height: 1.5;
 }

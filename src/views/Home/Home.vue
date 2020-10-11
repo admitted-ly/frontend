@@ -2,7 +2,7 @@
   <div class="row  px-5 txt-center">
       <div class="col-12 col-md-6">
         <div class="hero-text-first">
-          <p class="color-blue mb-3 ml-1 typewrite " data-period="2000" 
+          <p class="color-green mb-3 ml-1 typewrite " data-period="2000" 
                                 data-type='[ " Hi there😊 welcome to ..." ]'>
                                         
             <span class="wrap"></span>
