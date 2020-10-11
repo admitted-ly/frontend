@@ -1,7 +1,10 @@
 <template>
     <div id="app">
         <NavbarComponent :hide_nav_brand="hide_nav_brand" />
-        <router-view />
+
+        <div class="container">
+            <router-view />
+        </div>
 
         <FooterComponent />
     </div>

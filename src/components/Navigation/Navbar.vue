@@ -1,26 +1,25 @@
 <template>
     <nav class="navbar navbar-expand-lg py-4 my-navbar fixed-top">
-        <i
-            class="fa fa-long-arrow-left  pl-3"
-            id="back-arrow"
-            aria-hidden="true"
-            @click="back"
-            v-if="hide_nav_brand"
-        ></i>
+        <div class="container">
+            <i
+                class="fa fa-long-arrow-left  pl-3"
+                id="back-arrow"
+                aria-hidden="true"
+                @click="back"
+                v-if="hide_nav_brand"
+            ></i>
 
-        <i class="pl-md-5 dynamic-brand" v-if="hide_nav_brand">
-            {{ title }}
-        </i>
-
-        <router-link
-            :to="{ name: 'home' }"
-            class="nunito dynamic-brand"
-            v-if="!hide_nav_brand"
-        >
-            <i class="fa fa-graduation-cap" aria-hidden="true">
-                Admittedly
-            </i>
-        </router-link>
+            <router-link
+                :to="{ name: 'home' }"
+                class="nunito dynamic-brand"
+                v-if="!hide_nav_brand"
+            >
+                <div class="logo">
+                    <i class="fa fa-graduation-cap" aria-hidden="true"></i>
+                    <span>Admittedly</span>
+                </div>
+            </router-link>
+        </div>
     </nav>
 </template>
 
@@ -60,13 +59,15 @@ a {
 
 .navbar-brand {
     font-weight: bold;
-    font-size: 3rem;
+    font-size: 2rem;
     color: #10d48e;
 }
 
-.fa-graduation-cap {
-    font-size: 4rem;
-    color: white;
+.logo {
+    font-size: 2.3rem;
+}
+.logo i + span {
+    margin-left: 10px;
 }
 
 #back-arrow {
