@@ -1,5 +1,5 @@
 <template>
-  <div class="row  px-5 text-center">
+  <div class="row  px-5 text-center mb-5">
       <div class="col-12 px-5 col-md-6 ml-md-auto mr-md-auto">
         <div class="hero-text-first">
 		
