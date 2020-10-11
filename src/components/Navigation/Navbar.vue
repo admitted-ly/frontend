@@ -55,7 +55,7 @@ export default {
 <style scoped>
 a {
     text-decoration: none;
-    color: white !important;
+    color: white;
 }
 
 .navbar-brand {
@@ -76,8 +76,8 @@ a {
 
 .navbar {
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.4);
-    background-color: #10d48e !important;
-    color: white !important;
+    background-color: #10d48e;
+    color: white;
     font-size: 3rem;
     font-weight: bold;
 }
