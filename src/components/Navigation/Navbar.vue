@@ -1,5 +1,5 @@
 <template>
-    <nav class="navbar navbar-expand-lg py-4 my-navbar fixed-top" id="header">
+    <nav class="navbar navbar-expand-lg py-4 my-navbar fixed-top">
         <i
             class="fa fa-long-arrow-left  pl-3"
             id="back-arrow"
@@ -26,7 +26,7 @@
 
 <script>
 export default {
-    name: "NavbarComponent",
+    name: "Navbar",
 
     props: {
         hide_nav_brand: {
@@ -58,35 +58,23 @@ a {
     color: white !important;
 }
 
-.my-navbar {
-    font-size: 1.4rem;
-    background-color: white !important;
-    color: #10d48e !important;
-}
-
 .navbar-brand {
     font-weight: bold;
     font-size: 3rem;
-    color: #10d48e !important;
+    color: #10d48e;
 }
 
-fa-graduation-cap {
+.fa-graduation-cap {
     font-size: 4rem;
-    color: white !important;
+    color: white;
 }
-
-/* .navbar-brand
-  {
-        position: absolute;
-        left: 50%;
-  } */
 
 #back-arrow {
     font-size: 2rem;
     color: white;
 }
 
-#header.active {
+.navbar {
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.4);
     background-color: #10d48e !important;
     color: white !important;
