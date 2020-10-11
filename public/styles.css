@@ -1,0 +1,93 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Glegoo&family=Quicksand&display=swap');
+
+html,
+body {
+	font-size: 62.5%;
+	font-family: 'Quicksand', sans-serif;
+	letter-spacing: 1px;
+	margin: 0px;
+    padding: 0px;
+	overflow-x: hidden!important;
+}
+
+.nunito{
+	font-family: 'Nunito', sans-serif;
+}
+
+.color-green{
+	color: #10D48E !important;
+}
+
+h3{
+	line-height: 1.5;
+}
+
+.hero-text-first{
+	margin-top: 20rem;
+}
+
+.hero-text-second{
+	margin-top: 20rem;
+}
+
+.heading{
+	font-size: 5.0rem;	
+	letter-spacing: 2px;
+	font-family: 'Montserrat';
+}
+
+.sub-heading{
+	font-size: 4.0rem;	
+	letter-spacing: 2px;
+}
+
+.green-btn {
+	background-color: #10D48E !important;
+	color: white;
+	font-size: 1.4rem;
+	letter-spacing: 1px;
+	width: 10rem;
+	
+}
+
+p{
+	font-size: 1.2rem;
+}
+
+@media only screen and (max-width: 600px) {
+	
+	h3{
+		font-size: 1.5rem;
+	}
+	
+	body {
+		font-size: 62.5%;
+		font-family: 'Quicksand', sans-serif;
+		letter-spacing: 1px;
+		margin: 0px;
+		padding: 0px;
+		overflow-x: hidden!important;
+		
+	}
+
+	.heading{
+		font-size: 2.5rem;	
+		letter-spacing: 3px;
+		font-family: 'Montserrat';
+	}
+
+	.sub-heading{
+		font-size: 1.7rem;	
+		letter-spacing: 2px;
+	}
+
+	.hero-text-first{
+		margin-top: 17rem;
+	}
+
+	.hero-text-second{
+		margin-top: 10rem;
+	}
+	
+}
