@@ -2,10 +2,11 @@
 
   <div id="app">
 
-    <NavbarComponent :hide_nav_brand="hide_nav_brand"/>
+    <NavbarComponent :hide_nav_brand="hide_nav_brand"
+                     :title="title"/>
     <router-view />
 
-    <FooterComponent />
+    <FooterComponent v-if="show_footer"/>
 
   </div>
 
@@ -29,6 +30,7 @@ export default {
   data(){
     return{
       hide_nav_brand: false,
+      show_footer: true,
       title: null
       
     }
@@ -43,6 +45,13 @@ export default {
         }else{
           this.hide_nav_brand = false
           this.title = null
+        }
+
+        if(value.meta.hideFooter) {
+          this.show_footer = false
+          
+        }else{
+          this.show_footer = true
         }
 
     }

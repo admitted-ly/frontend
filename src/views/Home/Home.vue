@@ -8,7 +8,7 @@
             <span class="wrap"></span>
             
           </p>
-          <h1 class="heading nunito mt-3">Admittedly </h1>
+          <h1 class="heading nunito mt-3">Admittedly✨</h1>
           <h1 class="sub-heading text-muted mt-3">Discover colleges in the US that might accept you</h1>
           <h3 class="mt-5 text-muted text-justify">
 
@@ -16,7 +16,7 @@
 
           </h3>
 
-          <router-link :to="{ name: 'home' }">
+          <router-link :to="{ name: 'search' }">
             <button class="btn mt-4 py-3 green-btn">Search</button>
           </router-link>
     

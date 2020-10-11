@@ -1,7 +1,7 @@
 <template>
   <div class="">
 	<div class="search-icon-wrapper text-center">
-		<router-link  :to="{ name: 'home' }">
+		<router-link  :to="{ name: 'search' }">
 		<i class="fa fa-search mt-3" aria-hidden="true"></i>
 		</router-link>
 	</div>

@@ -11,6 +11,18 @@ body {
 	overflow-x: hidden!important;
 }
 
+label,  textarea,
+input[type="search"],
+input[type="text"],
+input[type="number"],
+input[type="password"],
+input[type="email"] 
+{
+
+	font-size: 1.4rem !important;
+}
+
+
 .nunito{
 	font-family: 'Nunito', sans-serif;
 }
@@ -72,13 +84,13 @@ p{
 	}
 
 	.heading{
-		font-size: 2.5rem;	
+		font-size: 3rem;	
 		letter-spacing: 3px;
 		font-family: 'Montserrat';
 	}
 
 	.sub-heading{
-		font-size: 1.7rem;	
+		font-size: 2.5rem;	
 		letter-spacing: 2px;
 	}
 
