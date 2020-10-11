@@ -28,5 +28,26 @@
     "eslint-plugin-vue": "^5.0.0",
     "prettier": "^1.18.2",
     "vue-template-compiler": "^2.6.10"
-  }
+  },
+  "prettier": {
+		"tabWidth": 4,
+		"useSpaces": true,
+        "semi": true,
+		"htmlWhitespaceSensitivity": "ignore",
+		"jsxBracketSameLine": true,
+		"overrides": [
+			{
+				"files": "*.html",
+				"options": {
+					"parser":"html"
+				}
+			},
+			{
+				"files": "*.vue",
+				"options": {
+					"parser":"vue"
+				}
+			}
+		]
+	}
 }
