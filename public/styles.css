@@ -11,24 +11,18 @@ body {
     overflow-x: hidden;
 }
 
-label,  textarea,
-input[type="search"],
+/* removing this from a scoped css because we could have input fields 
+across multiple pages */
+label,  
 input[type="text"],
-input[type="number"],
-input[type="password"],
-input[type="email"] 
-{
-
-	font-size: 1.4rem !important;
+input[type="number"] {
+    font-size: 1.4rem;
+    padding: 5px 20px;
+    margin: 20px 0 20px 0;
 }
-
 
 .nunito{
 	font-family: 'Nunito', sans-serif;
-}
-
-.color-green {
-    color: #10d48e;
 }
 
 h3 {
@@ -46,13 +40,6 @@ h3 {
     letter-spacing: 2px;
 }
 
-.green-btn {
-    background-color: #10d48e;
-    color: white;
-    font-size: 1.4rem;
-    letter-spacing: 1px;
-    width: 10rem;
-}
 
 p {
     font-size: 1.2rem;
@@ -96,6 +83,10 @@ p {
     .sub-heading {
         font-size: 1.7rem;
         letter-spacing: 2px;
+    }
+
+    .image{
+        margin-top: 7rem;
     }
 
 }

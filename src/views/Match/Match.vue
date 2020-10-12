@@ -1,9 +1,15 @@
 <template>
     <div class="container padding-top">
-        <div class="row">
+        <div class="row px-3">
             <div class="col-md">
                 <div class="card user-info-card">
+
                     <div class="sub-heading text-center">
+                        <i class="fa fa-question-circle " aria-hidden="true"></i>
+                       
+                    </div>
+                    <div class="sub-heading text-center">
+                       
                         👋 Tell us about yourself
                     </div>
                     <div class="card-body">
@@ -49,12 +55,6 @@
     font-size: 26px;
 }
 
-input[type="text"],
-input[type="number"] {
-    font-size: 28px;
-    padding: 5px 20px;
-    margin: 20px 0 20px 0;
-}
 .col-md {
     display: flex;
     justify-content: center;
@@ -74,6 +74,11 @@ input[type="number"] {
     cursor: pointer;
 }
 
+.fa-question-circle{
+	color: #6c63ff;
+	font-size: 5rem;
+}
+
 @media screen and (max-width: 760px) {
     .illustration {
         width: 300px;
@@ -84,6 +89,55 @@ input[type="number"] {
 
 <script>
 export default {
-    name: "Match"
+    name: "Match",
+
+    data() {
+        return {
+        
+        student_details_form: {
+            sat_score: null,
+            zip_code: null
+        }
+        
+        }
+    },
+  
+  
+    methods: {
+
+        onSubmit() {
+        let colleges_lis_url = `api/v1/users/recommendations`;
+
+        let formData = new FormData();
+
+        formData.append("sat_score", this.student_details_form.sat_score);
+        formData.append("zip_code", this.student_details_form.zip_code);
+
+        let method = "POST";
+        
+        //will use the code below when our endpoint is ready
+
+        //   apiService(colleges_list_url, method, formData)
+        //     .then(data => {
+
+                    // this.$router.push(
+                    // 	{
+                    //   		name: 'colleges',
+                    //   		params: { colleges_list: data }
+                    // 	}
+                    // )
+            
+        //     })
+        //     .catch(error => {
+        //       this.error = error;
+        //     });
+        },
+    },
+
+    mounted: function() {
+        document.title = "Admittedly | Match";
+        
+    }
+
 };
 </script>

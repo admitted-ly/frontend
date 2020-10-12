@@ -25,10 +25,10 @@
                 </div>
             </div>
 
-            <div class="col-12 col-md-6 hero-text-second text-center px-5">
+            <div class="col-12 col-md-6 image text-left text-md-center ">
                 <img
                     alt="College Students"
-                    class="img-fluid rounded float-md-right img-home"
+                    class="img-fluid rounded float-left img-home"
                     src="../../assets/images/college.jpg"
                 />
             </div>

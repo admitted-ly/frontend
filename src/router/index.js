@@ -28,7 +28,7 @@ export default new Router({
       path: "/match",
       name: "match",
       component: Match,
-      meta: { title: "Match Colleges" }
+      meta: { hideFooter: true, hideBrand: true, title: "Match Colleges" }
     }
     
   ]
