@@ -15,7 +15,9 @@
                     </h3>
 
                     <router-link :to="{ name: 'home' }">
-                        <button class="btn mt-4 py-3 green-btn">Search</button>
+                        <button class="btn call-to-action">
+                            Get Started
+                        </button>
                     </router-link>
                 </div>
             </div>
@@ -38,4 +40,16 @@ export default {
 };
 </script>
 
-<style scoped></style>
+<style scoped>
+.btn.call-to-action {
+    background-color: #6c63ff;
+    color: white;
+    width: auto;
+    padding: 1.3rem 4rem 1.3rem 4rem;
+    border-radius: 5px;
+    box-shadow: 0 10px 15px rgba(0, 0, 0, 0.2);
+    margin-top: 25px;
+    font-size: 2rem;
+    letter-spacing: 1px;
+}
+</style>

@@ -65,6 +65,7 @@ a {
 
 .logo {
     font-size: 2.3rem;
+    margin-left: 10px;
 }
 .logo i + span {
     margin-left: 10px;
