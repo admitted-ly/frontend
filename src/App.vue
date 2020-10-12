@@ -1,9 +1,9 @@
 <template>
     <div id="app">
         <NavbarComponent :hide_nav_brand="hide_nav_brand" />
-
-        <router-view />
-
+        <transition name="fade">
+            <router-view />
+        </transition>
         <FooterComponent />
     </div>
 </template>

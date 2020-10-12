@@ -1,5 +1,5 @@
 <template>
-    <div class="container">
+    <div class="container padding-top">
         <div class="headline row px-5 txt-center">
             <div class="col-12 col-md-6">
                 <div class="hero-text-first">
@@ -15,9 +15,12 @@
                     </h3>
 
                     <router-link :to="{ name: 'home' }">
-                        <button class="btn call-to-action">
+                        <router-link
+                            :to="{ name: 'match' }"
+                            class="btn call-to-action"
+                        >
                             Get Started
-                        </button>
+                        </router-link>
                     </router-link>
                 </div>
             </div>
