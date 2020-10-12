@@ -12,20 +12,35 @@
                        
                         👋 Tell us about yourself
                     </div>
-                    <div class="card-body">
-                        <input
-                            type="number"
-                            class="form-control"
-                            placeholder="SAT score (300-1600)"
-                        />
-                        <input
-                            type="number"
-                            class="form-control"
-                            placeholder="Zip code (optional)"
-                        />
-                        <button class="search-button btn-block">
-                            ✨ Search
-                        </button>
+                    <div class="card-body mb-5">
+
+                        <form  @submit.prevent="onSubmit">
+				
+                            <div class="form-group mt-3">
+                                <input 
+                                    type="number" 
+                                    class="form-control" v-model="student_details_form.sat_score"
+                                    placeholder="SAT score (300-1600)"
+                                />
+                            </div>
+                            <div class="form-group mt-5">
+                                <input 
+                                    type="number" 
+                                    class="form-control" v-model="student_details_form.zip_code"
+                                    placeholder="Zip code (optional)"
+                                >
+                            </div>
+                            <button 
+                                type="submit" 
+                                class="search-button btn-block"
+                               
+                            >
+                                 ✨ Search
+                            </button>
+
+                        </form>
+
+                       
                     </div>
                 </div>
             </div>
@@ -88,6 +103,8 @@
 </style>
 
 <script>
+import { apiService } from "@/utils/api.service.js"
+
 export default {
     name: "Match",
 
@@ -96,7 +113,8 @@ export default {
         
         student_details_form: {
             sat_score: null,
-            zip_code: null
+            zip_code: null,
+            error: null,
         }
         
         }
@@ -106,31 +124,35 @@ export default {
     methods: {
 
         onSubmit() {
-        let colleges_lis_url = `api/v1/users/recommendations`;
+            let colleges_list_url = `api/v1/users/recommendations`;
 
-        let formData = new FormData();
+            let formData = new FormData();
 
-        formData.append("sat_score", this.student_details_form.sat_score);
-        formData.append("zip_code", this.student_details_form.zip_code);
+            formData.append("sat_score", Number(this.student_details_form.sat_score));
+            formData.append("zip_code", this.student_details_form.zip_code);
 
-        let method = "POST";
-        
-        //will use the code below when our endpoint is ready
-
-        //   apiService(colleges_list_url, method, formData)
-        //     .then(data => {
-
-                    // this.$router.push(
-                    // 	{
-                    //   		name: 'colleges',
-                    //   		params: { colleges_list: data }
-                    // 	}
-                    // )
+            let method = "POST";
             
-        //     })
-        //     .catch(error => {
-        //       this.error = error;
-        //     });
+            apiService(colleges_list_url, method, formData)
+                .then(data => {
+
+                        this.$router.push(
+                            {
+                                name: 'search-results',
+                                // params: { colleges_list: data }
+                            }
+                        )
+                
+                })
+                .catch(error => {
+                    this.error = error;
+                     this.$router.push(
+                        {
+                            name: 'search-results',
+                            // params: { colleges_list: data }
+                        }
+                    )
+            });
         },
     },
 

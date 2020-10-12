@@ -1,7 +1,7 @@
 import Vue from "vue";
 import Router from "vue-router";
 import Home from "@/views/Home/Home.vue";
-import Search from "@/views/Search/Search.vue";
+import SearchResult from "@/views/SearchResult/SearchResult.vue";
 import Match from "@/views/Match/Match.vue";
 
 Vue.use(Router);
@@ -18,10 +18,10 @@ export default new Router({
     },
 
     {
-      path: "/search",
-      name: "search",
-      component: Search,
-      meta: { hideFooter: true, hideBrand: true, title: "Explore" },
+      path: "/results",
+      name: "search-results",
+      component: SearchResult,
+      meta: { hideFooter: true, hideBrand: true, title: "Your Search Results" },
     },
 
     {

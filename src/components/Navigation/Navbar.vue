@@ -76,7 +76,8 @@ a {
   
 #header.active{
      box-shadow: 0 0 10px rgba(0,0,0,0.4);  
-     background-color: #10d48e;
+     background-color: #6c63ff;
+     /* #10d48e; */
      font-size: 3rem;
      font-weight: bold;
      color: white;
