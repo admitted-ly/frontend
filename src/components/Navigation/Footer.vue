@@ -1,12 +1,14 @@
 <template>
-    <div class="my-footer text-center">
-        <div class="row m-4">
-            <div class="col-12">
-                <p>
-                    Made with
-                    <i class="fa fa-heart" aria-hidden="true"></i>
-                    by Team Admittedly 2020
-                </p>
+    <div class="container">
+        <div class="my-footer text-center">
+            <div class="row m-4">
+                <div class="col-12">
+                    <p>
+                        Made with
+                        <i class="fa fa-heart" aria-hidden="true"></i>
+                        by Team Admittedly 2020
+                    </p>
+                </div>
             </div>
         </div>
     </div>

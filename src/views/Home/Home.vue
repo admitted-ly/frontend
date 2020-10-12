@@ -1,15 +1,24 @@
 <template>
-    <Headline></Headline>
+    <div>
+        <Hero />
+        <WideBlockFeatured />
+
+        <ExperienceBlock />
+    </div>
 </template>
 
 <script>
-import Headline from "@/components/Home/Headline.vue";
+import Hero from "@/components/Home/Hero.vue";
+import WideBlockFeatured from "@/components/Home/WideBlockFeatured";
+import ExperienceBlock from "@/views/Home/ExperienceBlock";
 
 export default {
     name: "home",
 
     components: {
-        Headline
+        ExperienceBlock,
+        WideBlockFeatured,
+        Hero
     },
 
     mounted: function() {
@@ -17,5 +26,3 @@ export default {
     }
 };
 </script>
-
-<style scoped></style>

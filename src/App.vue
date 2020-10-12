@@ -2,9 +2,7 @@
     <div id="app">
         <NavbarComponent :hide_nav_brand="hide_nav_brand" />
 
-        <div class="container">
-            <router-view />
-        </div>
+        <router-view />
 
         <FooterComponent />
     </div>
