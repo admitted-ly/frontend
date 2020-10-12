@@ -73,6 +73,13 @@ input[type="number"] {
     border: none;
     cursor: pointer;
 }
+
+@media screen and (max-width: 760px) {
+    .illustration {
+        width: 300px;
+        padding-top: 80px;
+    }
+}
 </style>
 
 <script>
