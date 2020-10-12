@@ -1,23 +1,16 @@
 <template>
-
-  <div id="app">
-
-    <NavbarComponent :hide_nav_brand="hide_nav_brand"
-                     :title="title"/>
-    <router-view />
-
-    <FooterComponent v-if="show_footer"/>
-
-  </div>
-
+    <div id="app">
+        <NavbarComponent :hide_nav_brand="hide_nav_brand" />
+        <transition name="fade">
+            <router-view />
+        </transition>
+        <FooterComponent />
+    </div>
 </template>
 
 <script>
-
 import NavbarComponent from "@/components/Navigation/Navbar.vue";
-import  FooterComponent from "@/components/Navigation/Footer.vue";
-
-// import { apiService } from "@/common/api.service.js";
+import FooterComponent from "@/components/Navigation/Footer.vue";
 
 export default {
 
@@ -56,19 +49,17 @@ export default {
 
     }
   }
-};
+}
 
 </script>
 
 <style>
-
   #nav a {
-    font-weight: bold;
-    color: #2c3e50;
+      font-weight: bold;
+      color: #2c3e50;
   }
 
   #nav a.router-link-exact-active {
-    color: #42b983;
+      color: #42b983;
   }
-
 </style>

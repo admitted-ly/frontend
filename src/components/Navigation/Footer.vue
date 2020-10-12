@@ -6,7 +6,6 @@
 		</div>
 
     </div>
- </div>     
 </template>
 
 <script>
@@ -18,19 +17,17 @@
 </script>
 
 <style scoped>
+    .my-footer {
+        font-size: 1.4rem;
+        letter-spacing: 1px;
+        width: 100%;
+        margin-top: 10rem;
+        position: relative;
+        bottom: 0;
+    }
 
-.my-footer {
-  font-size: 1.4rem;
-  letter-spacing: 1px;
-  width: 100%;
-  margin-top: 10.0rem;
-  position: relative;
-  bottom: 0px;
-  
-}
-
-.fa-heart{
-	font-size: 1.4rem;
-	color: #10D48E;
-}
+    .fa-heart {
+        font-size: 1.4rem;
+        color: #10d48e;
+    }
 </style>

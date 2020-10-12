@@ -20,73 +20,53 @@
 
 </template>
 
-
 <script>
- 
-  export default {
-    name: "NavbarComponent",
+export default {
+    name: "Navbar",
 
     props: {
-      hide_nav_brand: {
-        type: Boolean,
-        required: true,
-      },
+        hide_nav_brand: {
+            type: Boolean,
+            required: true
+        },
 
-      title: {
-        type: String,
-        required: false,
-      },
+        title: {
+            type: String,
+            required: false
+        }
     },
 
     data() {
-      return {
-        
-        hide_nav_brand: this.hide_nav_brand,
-        title: this.title,
-      
-      };
+        return {};
     },
 
     methods: {
-
-			back () {
-				this.$router.back()
-			}
-  
+        back() {
+            this.$router.back();
+        }
     }
-
-  };
+};
 </script>
 
 <style scoped>
-
-  a {
+a {
     text-decoration: none;
-    color: white !important;
-  }
+    color: white;
+}
 
-  .my-navbar {
-    font-size: 1.4rem;
-    background-color: white !important;
-    color: #10D48E !important;
-  }
-
-  .navbar-brand {
+.navbar-brand {
     font-weight: bold;
-    font-size: 3rem;
-    color: #10D48E !important;
-  }
+    font-size: 2rem;
+    color: #10d48e;
+}
 
-  fa-graduation-cap{
-    font-size: 4rem;
-    color: white !important;
-  }
-
-  /* .navbar-brand
-  {
-        position: absolute;
-        left: 50%;
-  } */
+.logo {
+    font-size: 2.3rem;
+    margin-left: 10px;
+}
+.logo i + span {
+    margin-left: 10px;
+}
 
   #back-arrow{
 		font-size: 2rem;
@@ -102,4 +82,11 @@
      font-weight: bold;
 }
 
+.navbar {
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.4);
+    background-color: #10d48e;
+    color: white;
+    font-size: 3rem;
+    font-weight: bold;
+}
 </style>
