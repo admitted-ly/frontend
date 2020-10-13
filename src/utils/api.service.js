@@ -1,7 +1,7 @@
 import { CSRF_TOKEN } from "./csrf_token.js";
 import axios from "axios";
 
-const API_URL = "https://backend-zmavnf7t6a-uc.a.run.app/";
+const API_URL = "https://backend-zmavnf7t6a-uc.a.run.app";
 
 function apiService(endpoint, method, data) {
     endpoint = `${API_URL}/${endpoint}`;

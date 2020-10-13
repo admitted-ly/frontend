@@ -109,8 +109,8 @@ export default {
     data() {
         return {
             student_details_form: {
-                sat_score: null,
-                zip_code: null,
+                sat_score: window.localStorage.getItem('sat_score'),
+                zip_code: window.localStorage.getItem('zip_code'),
                 error: null
             }
         };
@@ -118,7 +118,7 @@ export default {
 
     methods: {
         onSubmit() {
-            let colleges_list_url = `api/v1/users/recommendations`;
+            let colleges_list_url = `api/v1/user/recommendations`;
 
             let formData = new FormData();
 
@@ -132,17 +132,25 @@ export default {
 
             apiService(colleges_list_url, method, formData)
                 .then(data => {
+
+                    //stores data in session to be accessed in the results component
+
+                    window.sessionStorage.setItem('colleges', JSON.stringify(data));
+
+                    //stores data in localstorage to be accessed nextime the user visits
+                    window.localStorage.setItem(
+                        'sat_score', this.student_details_form.sat_score
+                    )
+                    window.localStorage.setItem(
+                        'zip_code', this.student_details_form.zip_code
+                    )
+
                     this.$router.push({
                         name: "search-results"
-                        // params: { colleges_list: data }
                     });
                 })
                 .catch(error => {
                     this.error = error;
-                    this.$router.push({
-                        name: "search-results"
-                        // params: { colleges_list: data }
-                    });
                 });
         }
     },

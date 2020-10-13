@@ -21,6 +21,7 @@ export default new Router({
             path: "/results",
             name: "search-results",
             component: SearchResult,
+            props: true,
             meta: {
                 hideFooter: true,
                 hideBrand: true,

@@ -30,7 +30,8 @@ input[type="number"] {
 }
 
 h3 {
-    line-height: 1.5;
+    font-size: 2.0rem;
+    /* font-weight: bold; */
 }
 
 
@@ -46,7 +47,7 @@ h3 {
 
 
 p {
-    font-size: 1.2rem;
+    font-size: 1.4rem;
 }
 .padding-top {
     margin-top: 13rem;
@@ -66,10 +67,7 @@ p {
 
 
 @media screen and (max-width: 600px) {
-    h3 {
-        font-size: 1.5rem;
-    }
-
+   
     body {
         font-size: 62.5%;
         font-family: "Quicksand", sans-serif;
