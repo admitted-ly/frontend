@@ -13,53 +13,43 @@ import NavbarComponent from "@/components/Navigation/Navbar.vue";
 import FooterComponent from "@/components/Navigation/Footer.vue";
 
 export default {
+    name: "App",
+    components: {
+        NavbarComponent,
+        FooterComponent
+    },
 
-  name: "App",
-  components: {
-    NavbarComponent, 
-    FooterComponent
-  },
+    data() {
+        return {
+            hide_nav_brand: false,
+            show_footer: true,
+            title: null
+        };
+    },
 
-  data(){
-    return{
-      hide_nav_brand: false,
-      show_footer: true,
-      title: null
-      
-    }
-  },
+    watch: {
+        $route: function(value) {
+            if (value.meta.hideBrand) {
+                this.hide_nav_brand = true;
+                this.title = value.meta.title;
+            } else {
+                this.hide_nav_brand = false;
+                this.title = null;
+            }
 
-  watch: {
-  	'$route': function(value) {
-			
-        if(value.meta.hideBrand) {
-          this.hide_nav_brand = true
-          this.title = value.meta.title
-        }else{
-          this.hide_nav_brand = false
-          this.title = null
+            this.show_footer = !value.meta.hideFooter;
         }
-
-        if(value.meta.hideFooter) {
-          this.show_footer = false
-          
-        }else{
-          this.show_footer = true
-        }
-
     }
-  }
-}
-
+};
 </script>
 
 <style>
-  #nav a {
-      font-weight: bold;
-      color: #2c3e50;
-  }
+#nav a {
+    font-weight: bold;
+    color: #2c3e50;
+}
 
-  #nav a.router-link-exact-active {
-      color: #42b983;
-  }
+#nav a.router-link-exact-active {
+    color: #42b983;
+}
 </style>
