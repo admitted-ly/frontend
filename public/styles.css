@@ -65,6 +65,11 @@ p {
     filter: opacity(0);
 }
 
+a{
+    text-decoration: none !important;
+    
+}
+
 
 @media screen and (max-width: 600px) {
    

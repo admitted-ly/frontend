@@ -11,6 +11,7 @@
                     :name='college.Name'
                     :state='college.State_abbreviation'
                     :avg_sat='college.SAT' 
+                    :highest_degree_offered='college.Highest_degree_offered'
                 />
                 
             </div>

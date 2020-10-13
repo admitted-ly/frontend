@@ -13,18 +13,24 @@
                     <div class="col-md-8 col-12 text-left px-md-5 px-1">
 
                        <div class="mt-3 ">
-                            <h3 class="blue-color">
-                            {{ name }}
-                            <i class="fa fa-external-link ml-1 text-muted" aria-hidden="true">
-
-                            </i>
-                            </h3>
+                            <a :href="college_url">
+                                <h3 class="blue-color">
+                                {{ name }}
+                                <i class="fa fa-external-link ml-1 blue-color" aria-hidden="true">
+                                </i>
+                                </h3>
+                            </a>
                             <p> {{ state }} </p>
-
                        </div>
                        <div class="mt-5">
                         <p>
-                        This school has been recommend for you because it has an average SAT score of 1120 and your SAT score is 1130. You are 10 points above the average that's not bad 
+                        This school has been recommended to you because it has an average SAT score of <b> {{ avg_sat }} </b> and your SAT score is <b> {{ user_sat }}. {{ concludingSentence }} </b>
+                        </p>
+                       </div>
+
+                       <div class="mt-3 text-muted border-top">
+                        <p>
+                            Highest Degree Offered: {{ highest_degree_offered }}
                         </p>
                        </div>
                     </div>
@@ -52,6 +58,11 @@ export default {
         avg_sat: {
             type: Number,
             required: true,
+        },
+
+        highest_degree_offered: {
+           type: String,
+           required: true 
         }
     },
 
@@ -59,9 +70,35 @@ export default {
         return{
             name: this.name,
             state: this.state,
-            avg_sat: this.avg_sat
+            avg_sat: this.avg_sat,
+            highest_degree_offered: this.highest_degree_offered,
+            user_sat: window.localStorage.getItem('sat_score'),
+            college_url: `http://www.google.com/search?q=${this.name}&btnI`
+        }
+    },
+
+    computed: {
+
+        concludingSentence() {
+            let points_difference = this.avg_sat - this.user_sat;
+            let concluding_sentence = null
+
+            if  (points_difference < 0){
+                let points = Math.abs(points_difference)
+                concluding_sentence = `You are just ${points} points below the average. That's not bad actually!`
+            }else if  (points_difference > 0){
+
+                concluding_sentence = `You are  ${points_difference} points above the average. That's really awesome!`
+            }else{
+                concluding_sentence = "Your score equals the average SAT score. That's that's really good!"
+            }
+
+            return concluding_sentence
+
         }
     }
+
+    
 };
 </script>
 
