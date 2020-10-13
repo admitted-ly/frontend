@@ -1,11 +1,11 @@
 window.onscroll = () => {
     const header = document.querySelector("#header");
     const dynamicBrand = document.querySelector(".dynamic-brand");
-    const headerHeight = header.clientHeight;
+    const heroHeight = document.querySelector("#hero").clientHeight;
 
     if (
-        document.body.scrollTop > headerHeight ||
-        document.documentElement.scrollTop > headerHeight
+        document.body.scrollTop > heroHeight ||
+        document.documentElement.scrollTop > heroHeight
     ) {
         header.classList.add("is-active");
         dynamicBrand.classList.remove("navbar-brand");

@@ -1,11 +1,17 @@
 <template>
-    <nav class="navbar navbar-expand-lg py-3 px-5" id="header">
-        <i
-            class="fa fa-long-arrow-left dynamic-brand navbar-brand py-3 pl-3"
-            aria-hidden="true"
-            @click="back"
-            v-if="hide_nav_brand"
-        ></i>
+    <nav
+        class="navbar navbar-expand-lg py-3 px-5"
+        :class="{ 'force-active': forceActive }"
+        id="header"
+    >
+        <a href="#" @click="back">
+            <img
+                src="../../assets/svg/icons/arrow-left-solid.svg"
+                class="nav-back-button"
+                alt="Back"
+                v-if="hide_nav_brand"
+            />
+        </a>
 
         <router-link
             :to="{ name: 'home' }"
@@ -31,6 +37,11 @@ export default {
         title: {
             type: String,
             required: false
+        },
+        forceActive: {
+            type: Boolean,
+            required: false,
+            default: false
         }
     },
 
@@ -51,16 +62,21 @@ a {
     text-decoration: none;
     color: white;
 }
-
+.nav-back-button {
+    width: 20px;
+    color: white;
+    filter: invert(1);
+    margin-top: -6px;
+}
 .navbar-brand {
     font-weight: bold;
     font-size: 3rem;
-    color: #6c63ff;
+    color: white;
 }
 
 .fa-long-arrow-left {
-    font-size: 2rem;
-    font-weight: bold;
+    font-size: 1rem;
+    cursor: pointer;
 }
 
 #header {
@@ -71,7 +87,8 @@ a {
     width: 100%;
     z-index: 1000;
 }
-#header.is-active {
+#header.is-active,
+#header.force-active {
     animation: topFixate 0.4s ease;
     position: fixed;
     top: 0;

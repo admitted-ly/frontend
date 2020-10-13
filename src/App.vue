@@ -1,6 +1,9 @@
 <template>
     <div id="app">
-        <NavbarComponent :hide_nav_brand="hide_nav_brand" />
+        <NavbarComponent
+            :hide_nav_brand="hide_nav_brand"
+            :force-active="this.$route.name !== 'home'"
+        />
         <transition name="fade">
             <router-view />
         </transition>
