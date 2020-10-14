@@ -32,7 +32,11 @@ export default new Router({
             path: "/match",
             name: "match",
             component: Match,
-            meta: { hideFooter: true, hideBrand: true, title: "Find Colleges" }
+            meta: {
+                hideFooter: true,
+                hideBrand: true,
+                title: "Search Colleges"
+            }
         }
     ]
 });
