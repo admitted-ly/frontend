@@ -1,5 +1,9 @@
-@import url("https://fonts.googleapis.com/css2?family=Nunito&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Glegoo&family=Quicksand&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@400;700;800&family=Quicksand:wght@400;500;700&display=swap');
+
+:root {
+    --primary: #6c63ff;
+    --secondary: #4f91ff;
+}
 
 html,
 body {
@@ -7,22 +11,27 @@ body {
     font-family: "Quicksand", sans-serif;
     letter-spacing: 1px;
     margin: 0;
-    padding: 30px 0 0;
     overflow-x: hidden;
+}
+
+/* removing this from a scoped css because we could have input fields 
+across multiple pages */
+label,
+input[type="text"],
+input[type="number"] {
+    font-size: 1.4rem;
+    padding: 5px 20px;
+    margin: 20px 0 20px 0;
 }
 
 .nunito {
     font-family: "Nunito", sans-serif;
 }
 
-.color-green {
-    color: #10d48e;
-}
-
 h3 {
-    line-height: 1.5;
+    font-size: 2rem;
+    /* font-weight: bold; */
 }
-
 
 .heading {
     font-size: 5rem;
@@ -34,38 +43,34 @@ h3 {
     letter-spacing: 2px;
 }
 
-.green-btn {
-    background-color: #10d48e;
-    color: white;
+p {
     font-size: 1.4rem;
-    letter-spacing: 1px;
-    width: 10rem;
 }
 
-p {
-    font-size: 1.2rem;
-}
-.container.padding-top {
+.padding-top {
     margin-top: 13rem;
 }
 
-.fade-enter-active, .fade-leave-active {
-  transition: all 1s ease-in-out;
+.fade-enter-active,
+.fade-leave-active {
+    transition: all 1s ease-in-out;
 }
+
 .fade-enter-to {
     transform: translateY(-509px);
     filter: opacity(1);
 }
+
 .fade-leave-to {
-     transform: translateY(-300px);
+    transform: translateY(-300px);
     filter: opacity(0);
 }
 
-@media screen and (max-width: 600px) {
-    h3 {
-        font-size: 1.5rem;
-    }
+a {
+    text-decoration: none !important;
+}
 
+@media screen and (max-width: 600px) {
     body {
         font-size: 62.5%;
         font-family: "Quicksand", sans-serif;
@@ -85,4 +90,7 @@ p {
         letter-spacing: 2px;
     }
 
+    .image {
+        margin-top: 7rem;
+    }
 }

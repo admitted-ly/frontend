@@ -1,6 +1,7 @@
 import Vue from "vue";
 import Router from "vue-router";
 import Home from "@/views/Home/Home.vue";
+import SearchResult from "@/views/SearchResult/SearchResult.vue";
 import Match from "@/views/Match/Match.vue";
 
 Vue.use(Router);
@@ -15,11 +16,24 @@ export default new Router({
             component: Home,
             meta: { title: "Admittedly" }
         },
+
+        {
+            path: "/results",
+            name: "search-results",
+            component: SearchResult,
+            props: true,
+            meta: {
+                hideFooter: true,
+                hideBrand: true,
+                title: "Your Search Results"
+            }
+        },
+
         {
             path: "/match",
             name: "match",
             component: Match,
-            meta: { title: "Match Colleges" }
+            meta: { hideFooter: true, hideBrand: true, title: "Match Colleges" }
         }
     ]
 });

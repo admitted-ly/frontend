@@ -1,6 +1,9 @@
 <template>
     <div id="app">
-        <NavbarComponent :hide_nav_brand="hide_nav_brand" />
+        <NavbarComponent
+            :hide_nav_brand="hide_nav_brand"
+            :force-active="this.$route.name !== 'home'"
+        />
         <transition name="fade">
             <router-view />
         </transition>
@@ -12,8 +15,6 @@
 import NavbarComponent from "@/components/Navigation/Navbar.vue";
 import FooterComponent from "@/components/Navigation/Footer.vue";
 
-// import { apiService } from "@/common/api.service.js";
-
 export default {
     name: "App",
     components: {
@@ -24,8 +25,23 @@ export default {
     data() {
         return {
             hide_nav_brand: false,
+            show_footer: true,
             title: null
         };
+    },
+
+    watch: {
+        $route: function(value) {
+            if (value.meta.hideBrand) {
+                this.hide_nav_brand = true;
+                this.title = value.meta.title;
+            } else {
+                this.hide_nav_brand = false;
+                this.title = null;
+            }
+
+            this.show_footer = !value.meta.hideFooter;
+        }
     }
 };
 </script>

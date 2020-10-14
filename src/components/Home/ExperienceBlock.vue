@@ -3,7 +3,7 @@
         <h1 class="container-header text-center">Easy as 1, 2, 3</h1>
 
         <div class="step step-1">
-            <div class="row justify-content-md-center">
+            <div class="row px-5 justify-content-md-center">
                 <div class="col-md">
                     <div class="header">
                         Provide us your latest SAT score and your ZIP code.
@@ -16,9 +16,9 @@
                     </p>
                 </div>
 
-                <div class="col-md col-center">
+                <div class="col-md col-center image">
                     <img
-                        class="illustration"
+                        class="illustration "
                         src="../../assets/svg/undraw_home_screen_4n7s.svg"
                         alt=""
                     />
@@ -27,7 +27,7 @@
         </div>
 
         <div class="step step-2">
-            <div class="row justify-content-md-center">
+            <div class="row px-5 justify-content-md-center">
                 <div class="col-md col-center">
                     <img
                         class="illustration"
@@ -48,7 +48,7 @@
             </div>
         </div>
         <div class="step step-3">
-            <div class="row justify-content-md-center">
+            <div class="row px-5 justify-content-md-center">
                 <div class="col-md">
                     <div class="header">
                         Explore your options.
@@ -59,7 +59,7 @@
                     </p>
                 </div>
 
-                <div class="col-md col-center">
+                <div class="col-md col-center image">
                     <img
                         class="illustration"
                         src="../../assets/svg/undraw_data_xmfy.svg"
