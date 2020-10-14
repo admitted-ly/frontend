@@ -1,5 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Nunito&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Glegoo&family=Quicksand&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@400;700;800&family=Quicksand:wght@400;500;700&display=swap');
 
 :root {
     --primary: #6c63ff;
@@ -17,7 +16,7 @@ body {
 
 /* removing this from a scoped css because we could have input fields 
 across multiple pages */
-label,  
+label,
 input[type="text"],
 input[type="number"] {
     font-size: 1.4rem;
@@ -25,15 +24,14 @@ input[type="number"] {
     margin: 20px 0 20px 0;
 }
 
-.nunito{
-	font-family: 'Nunito', sans-serif;
+.nunito {
+    font-family: "Nunito", sans-serif;
 }
 
 h3 {
-    font-size: 2.0rem;
+    font-size: 2rem;
     /* font-weight: bold; */
 }
-
 
 .heading {
     font-size: 5rem;
@@ -45,34 +43,34 @@ h3 {
     letter-spacing: 2px;
 }
 
-
 p {
     font-size: 1.4rem;
 }
+
 .padding-top {
     margin-top: 13rem;
 }
 
-.fade-enter-active, .fade-leave-active {
-  transition: all 1s ease-in-out;
+.fade-enter-active,
+.fade-leave-active {
+    transition: all 1s ease-in-out;
 }
+
 .fade-enter-to {
     transform: translateY(-509px);
     filter: opacity(1);
 }
+
 .fade-leave-to {
-     transform: translateY(-300px);
+    transform: translateY(-300px);
     filter: opacity(0);
 }
 
-a{
+a {
     text-decoration: none !important;
-    
 }
 
-
 @media screen and (max-width: 600px) {
-   
     body {
         font-size: 62.5%;
         font-family: "Quicksand", sans-serif;
@@ -92,8 +90,7 @@ a{
         letter-spacing: 2px;
     }
 
-    .image{
+    .image {
         margin-top: 7rem;
     }
-
 }

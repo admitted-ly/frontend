@@ -4,10 +4,7 @@
             <div class="col-md">
                 <div class="card user-info-card">
                     <div class="sub-heading text-center">
-                        <i
-                            aria-hidden="true"
-                            class="fa fa-question-circle "
-                        ></i>
+                        <i aria-hidden="true" class="fa fa-graduation-cap"></i>
                     </div>
                     <div class="sub-heading text-center">
                         👋 Tell us about yourself
@@ -20,6 +17,9 @@
                                     class="form-control"
                                     placeholder="SAT score (300-1600)"
                                     type="number"
+                                    max="1600"
+                                    min="300"
+                                    required
                                 />
                             </div>
                             <div class="form-group mt-5">
@@ -28,13 +28,20 @@
                                     class="form-control"
                                     placeholder="Zip code (optional)"
                                     type="number"
+                                    max="999999"
                                 />
                             </div>
                             <button
                                 class="search-button btn-block"
+                                :class="{ 'is-loading': isLoading }"
                                 type="submit"
                             >
-                                ✨ Search
+                                <div class="text">
+                                    ✨ Search
+                                </div>
+                                <div class="loading-icon">
+                                    <i class="fa fa-cog fa-spin"></i>
+                                </div>
                             </button>
                         </form>
                     </div>
@@ -85,11 +92,34 @@
     color: white;
     border: none;
     cursor: pointer;
+    overflow: hidden;
 }
 
 .fa-question-circle {
     color: #6c63ff;
     font-size: 5rem;
+}
+
+button > .text {
+    will-change: transform, opacity;
+    transition: all 0.3s ease-in-out;
+    opacity: 1;
+}
+button > .loading-icon {
+    position: absolute;
+    left: 0;
+    right: 0;
+    transition: all 0.3s ease-in-out;
+    will-change: transform, opacity;
+    opacity: 0;
+}
+button.is-loading > .text {
+    transform: translateY(-100px);
+    opacity: 0;
+}
+button.is-loading > .loading-icon {
+    transform: translateY(-100%);
+    opacity: 1;
 }
 
 @media screen and (max-width: 760px) {
@@ -109,49 +139,58 @@ export default {
     data() {
         return {
             student_details_form: {
-                sat_score: window.localStorage.getItem('sat_score'),
-                zip_code: window.localStorage.getItem('zip_code'),
+                sat_score: window.localStorage.getItem("sat_score"),
+                zip_code: window.localStorage.getItem("zip_code"),
                 error: null
-            }
+            },
+            isLoading: false
         };
     },
 
     methods: {
-        onSubmit() {
+        async onSubmit() {
+            this.isLoading = true;
+
             let colleges_list_url = `api/v1/user/recommendations`;
 
             let formData = new FormData();
 
-            formData.append(
-                "sat_score",
-                Number(this.student_details_form.sat_score)
-            );
-            formData.append("zip_code", this.student_details_form.zip_code);
+            let zipcode = this.student_details_form.zip_code;
+            if (!zipcode) zipcode = 0;
 
-            let method = "POST";
+            formData.append("sat_score", this.student_details_form.sat_score);
+            formData.append("zip_code", zipcode);
 
-            apiService(colleges_list_url, method, formData)
-                .then(data => {
+            try {
+                const data = await apiService(
+                    colleges_list_url,
+                    "POST",
+                    formData
+                );
 
-                    //stores data in session to be accessed in the results component
+                //stores data in session to be accessed in the results component
 
-                    window.sessionStorage.setItem('colleges', JSON.stringify(data));
+                window.sessionStorage.setItem("colleges", JSON.stringify(data));
 
-                    //stores data in localstorage to be accessed nextime the user visits
-                    window.localStorage.setItem(
-                        'sat_score', this.student_details_form.sat_score
-                    )
-                    window.localStorage.setItem(
-                        'zip_code', this.student_details_form.zip_code
-                    )
+                //stores data in localstorage to be accessed next time the user visits
+                window.localStorage.setItem(
+                    "sat_score",
+                    this.student_details_form.sat_score
+                );
+                window.localStorage.setItem(
+                    "zip_code",
+                    this.student_details_form.zip_code
+                );
 
-                    this.$router.push({
-                        name: "search-results"
-                    });
-                })
-                .catch(error => {
-                    this.error = error;
+                this.isLoading = false;
+                await this.$router.push({
+                    name: "search-results"
                 });
+            } catch {
+                console.error("Something bad happened during the API call");
+            } finally {
+                this.isLoading = false;
+            }
         }
     },
 

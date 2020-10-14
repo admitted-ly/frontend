@@ -86,6 +86,7 @@ a {
     top: 0;
     width: 100%;
     z-index: 1000;
+    justify-content: flex-start;
 }
 #header.is-active,
 #header.force-active {

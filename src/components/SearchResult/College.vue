@@ -2,37 +2,48 @@
     <div class="container">
         <div class="card college-info-card px-3 mb-5">
             <div class="card-body">
+                <div class="overlay">
+                    <img
+                        class="overlay-img"
+                        :src="generateImageUrl(college.Name, 'jpg')"
+                        alt=""
+                    />
+                </div>
                 <div class="row px-2">
-                    <div class="col-md-4 col-12 text-center">
-                        <img  
-                            src="../../assets/images/college.jpg" 
-                            class="img-fluid"
-                        >
+                    <div class="col-md-4 col-12 text-center pic-column">
+                        <img
+                            :alt="college.name"
+                            :src="generateImageUrl(college.Name, 'jpg')"
+                            @load="imageFound = true"
+                            onerror="this.style.display = 'none'"
+                        />
+                        <div v-if="!imageFound" class="noImageFoundFallback">
+                            <i class="fa fa-graduation-cap"></i>
+                        </div>
                     </div>
 
                     <div class="col-md-8 col-12 text-left px-md-5 px-1">
-
-                       <div class="mt-3 ">
-                            <a :href="college_url">
-                                <h3 class="blue-color">
-                                {{ name }}
-                                <i class="fa fa-external-link ml-1 blue-color" aria-hidden="true">
-                                </i>
+                        <div class="mt-3 ">
+                            <a target="_blank" :href="college_url">
+                                <h3 class="college-name">
+                                    {{ counter }}. {{ college.Name }}
+                                    <i
+                                        aria-hidden="true"
+                                        class="fa fa-external-link ml-1 college-name"
+                                    ></i>
                                 </h3>
                             </a>
-                            <p> {{ state }} </p>
-                       </div>
-                       <div class="mt-5">
-                        <p>
-                        This school has been recommended to you because it has an average SAT score of <b> {{ avg_sat }} </b> and your SAT score is <b> {{ user_sat }}. {{ concludingSentence }} </b>
-                        </p>
-                       </div>
-
-                       <div class="mt-3 text-muted border-top">
-                        <p>
-                            Highest Degree Offered: {{ highest_degree_offered }}
-                        </p>
-                       </div>
+                            <p class="font-weight-bold state-name">
+                                📍 {{ college.County_name }},
+                                {{ college.FIPS_state_code }}
+                            </p>
+                        </div>
+                        <div class="mt-5">
+                            <CollegeStats
+                                :user_sat="user_sat"
+                                :college="college"
+                            />
+                        </div>
                     </div>
                 </div>
             </div>
@@ -41,70 +52,95 @@
 </template>
 
 <script>
+import CollegeStats from "@/components/SearchResult/CollegeStats";
 export default {
-    name: "SingleCollege",
-
+    name: "College",
+    components: { CollegeStats },
     props: {
-        name: {
-            type: String,
-            required: true,
+        counter: {
+            type: Number,
+            required: true
         },
-
-        state: {
-            type: String,
-            required: true,
-        },
-
         avg_sat: {
             type: Number,
-            required: true,
+            required: true
         },
-
-        highest_degree_offered: {
-           type: String,
-           required: true 
+        college: {
+            type: Object,
+            required: true
         }
     },
 
-    data(){
-        return{
-            name: this.name,
-            state: this.state,
-            avg_sat: this.avg_sat,
-            highest_degree_offered: this.highest_degree_offered,
-            user_sat: window.localStorage.getItem('sat_score'),
-            college_url: `http://www.google.com/search?q=${this.name}&btnI`
-        }
+    data() {
+        return {
+            user_sat: window.localStorage.getItem("sat_score"),
+            college_url: `http://www.google.com/search?q=${this.college.Name}&btnI`,
+            imageFound: false
+        };
     },
-
-    computed: {
-
-        concludingSentence() {
-            let points_difference = this.avg_sat - this.user_sat;
-            let concluding_sentence = null
-
-            if  (points_difference < 0){
-                let points = Math.abs(points_difference)
-                concluding_sentence = `You are just ${points} points below the average. That's not bad actually!`
-            }else if  (points_difference > 0){
-
-                concluding_sentence = `You are  ${points_difference} points above the average. That's really awesome!`
-            }else{
-                concluding_sentence = "Your score equals the average SAT score. That's that's really good!"
-            }
-
-            return concluding_sentence
-
+    methods: {
+        generateImageUrl(collegeName, extension) {
+            const sanitizedCollegeName = collegeName.replace(/[ ]/g, "-");
+            return `https://storage.googleapis.com/admittedly.appspot.com/colleges%2F${sanitizedCollegeName}_500x500.${extension}`;
         }
     }
-
-    
 };
 </script>
 
 <style scoped>
-    .blue-color{
-        color: #6c63ff;
-        font-weight: bold;
+.state-name {
+    font-size: 18px;
+}
+.card {
+    overflow: hidden;
+    box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+}
+.card .card-body {
+    padding: 20px 30px;
+}
+.college-name {
+    color: #6c63ff;
+    font-weight: bold;
+    font-size: 29px;
+}
+
+.noImageFoundFallback {
+    font-size: 13rem;
+}
+
+.pic-column {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 300px;
+    overflow: hidden;
+    height: 500px;
+}
+
+.pic-column img {
+    max-height: 500px;
+    max-width: 400px;
+    filter: drop-shadow(0 10px 15px rgba(0, 0, 0, 0.09));
+}
+
+img.overlay-img {
+    position: absolute;
+    left: 0;
+    top: -50%;
+    width: 100%;
+    filter: blur(50px) brightness(1.4);
+    animation: burn 2s ease 1 normal forwards;
+    will-change: filter;
+}
+@keyframes burn {
+    0% {
+        filter: blur(30px) brightness(1.5) saturate(1.4) hue-rotate(0deg);
+        opacity: 0.8;
     }
+    100% {
+        filter: blur(80px) brightness(4) saturate(3) hue-rotate(360deg);
+        opacity: 0;
+    }
+}
 </style>
