@@ -3,6 +3,7 @@
         <NavbarComponent
             :hide_nav_brand="hide_nav_brand"
             :force-active="this.$route.name !== 'home'"
+            :title="title"
         />
         <transition name="fade">
             <router-view />

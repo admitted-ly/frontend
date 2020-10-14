@@ -7,11 +7,15 @@
         <a href="#" @click="back">
             <img
                 src="../../assets/svg/icons/arrow-left-solid.svg"
-                class="nav-back-button"
+                class="nav-back-button "
                 alt="Back"
                 v-if="hide_nav_brand"
             />
         </a>
+
+        <p v-if="hide_nav_brand" class="mt-2 title">
+            {{ title }}
+        </p>
 
         <router-link
             :to="{ name: 'home' }"
@@ -100,6 +104,16 @@ a {
     font-size: 30px;
     font-weight: bold;
     color: white;
+}
+.title {
+    margin-left: 40%;
+    font-size: 2.5rem;
+}
+@media screen and (max-width: 600px) {
+    .title {
+        margin-left: 25%;
+        font-size: 2rem;
+    }
 }
 @keyframes topFixate {
     0% {

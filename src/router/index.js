@@ -13,8 +13,7 @@ export default new Router({
         {
             path: "/",
             name: "home",
-            component: Home,
-            meta: { title: "Admittedly" }
+            component: Home
         },
 
         {
@@ -25,7 +24,7 @@ export default new Router({
             meta: {
                 hideFooter: true,
                 hideBrand: true,
-                title: "Your Search Results"
+                title: "Search Results"
             }
         },
 
@@ -33,7 +32,7 @@ export default new Router({
             path: "/match",
             name: "match",
             component: Match,
-            meta: { hideFooter: true, hideBrand: true, title: "Match Colleges" }
+            meta: { hideFooter: true, hideBrand: true, title: "Find Colleges" }
         }
     ]
 });
