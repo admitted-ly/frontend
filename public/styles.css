@@ -1,0 +1,107 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@400;700;800&family=Quicksand:wght@400;500;700&display=swap');
+
+:root {
+    --primary: #6c63ff;
+    --secondary: #4f91ff;
+}
+
+html,
+body {
+    font-size: 62.5%;
+    font-family: "Quicksand", sans-serif;
+    letter-spacing: 1px;
+    margin: 0;
+    overflow-x: hidden;
+}
+
+/* removing this from a scoped css because we could have input fields 
+across multiple pages */
+label,
+input[type="text"],
+input[type="number"] {
+    font-size: 1.4rem;
+    padding: 5px 20px;
+    margin: 20px 0 20px 0;
+}
+
+.btn.call-to-action {
+    background-color: var(--secondary);
+    color: white;
+    width: auto;
+    padding: 1.3rem 4rem 1.3rem 4rem;
+    border-radius: 5px;
+    box-shadow: 0 10px 15px rgba(0, 0, 0, 0.2);
+    margin-top: 25px;
+    font-size: 2rem;
+    letter-spacing: 1px;
+}
+
+.nunito {
+    font-family: "Nunito", sans-serif;
+}
+
+h3 {
+    font-size: 2rem;
+}
+
+.heading {
+    font-size: 5rem;
+    letter-spacing: 2px;
+}
+
+.sub-heading {
+    font-size: 4rem;
+    letter-spacing: 2px;
+}
+
+p {
+    font-size: 1.4rem;
+}
+
+.padding-top {
+    margin-top: 13rem;
+}
+
+.fade-enter-active,
+.fade-leave-active {
+    transition: all 1s ease-in-out;
+}
+
+.fade-enter-to {
+    transform: translateY(-509px);
+    filter: opacity(1);
+}
+
+.fade-leave-to {
+    transform: translateY(-300px);
+    filter: opacity(0);
+}
+
+a {
+    text-decoration: none !important;
+}
+
+@media screen and (max-width: 600px) {
+    body {
+        font-size: 62.5%;
+        font-family: "Quicksand", sans-serif;
+        letter-spacing: 1px;
+        margin: 0;
+        padding: 0;
+        overflow-x: hidden;
+    }
+
+    .heading {
+        font-size: 4rem;
+        letter-spacing: 3px;
+    }
+
+    .sub-heading {
+        font-size: 1.7rem;
+        letter-spacing: 2px;
+    }
+
+    .image {
+        margin-top: 7rem;
+    }
+}

@@ -9,6 +9,7 @@
     "test:unit": "vue-cli-service test:unit"
   },
   "dependencies": {
+    "axios": "^0.20.0",
     "core-js": "^2.6.5",
     "vue": "^2.6.10",
     "vue-router": "^3.0.3"
@@ -28,5 +29,26 @@
     "eslint-plugin-vue": "^5.0.0",
     "prettier": "^1.18.2",
     "vue-template-compiler": "^2.6.10"
-  }
+  },
+  "prettier": {
+		"tabWidth": 4,
+		"useSpaces": true,
+        "semi": true,
+		"htmlWhitespaceSensitivity": "ignore",
+		"jsxBracketSameLine": true,
+		"overrides": [
+			{
+				"files": "*.html",
+				"options": {
+					"parser":"html"
+				}
+			},
+			{
+				"files": "*.vue",
+				"options": {
+					"parser":"vue"
+				}
+			}
+		]
+	}
 }
