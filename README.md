@@ -1,18 +1,12 @@
 <h1 align="center">
-	Admittedly Frontend :sparkels:
+	Admittedly Frontend
 </h1>
 
 <p align="center">
-	<i>Personalized College Matching in the US<i>
+	<i>Personalized College Matching in the US</i>
 </p>
 
-<img 
-	align="center" 
-	width="700" 
-	height="300" 
-	src="https://challengepost-s3-challengepost.netdna-ssl.com/photos/production/software_photos/001/249/401/datas/original.PNG"
-	alt="Admittedly Cover Image"
->
+<img align="center" width="700" height="300" src="https://challengepost-s3-challengepost.netdna-ssl.com/photos/production/software_photos/001/249/401/datas/original.PNG">
 
 
 ## Project Descripttion
