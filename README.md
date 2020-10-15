@@ -3,13 +3,14 @@
 </h1>
 
 <p align="center">
-	<i>Personalized College Matching in the US</i>
+	<i>Personalized College Matching in the US for high school seniors</i>
 </p>
 
-<img align="center" width="700" height="300" src="https://challengepost-s3-challengepost.netdna-ssl.com/photos/production/software_photos/001/249/401/datas/original.PNG">
+<img align="center" width="800" height="300" src="https://challengepost-s3-challengepost.netdna-ssl.com/photos/production/software_photos/001/249/401/datas/original.PNG">
 
 
 ## Project Descripttion
+This repo contains Admittedly's frontend code.
 Admittedly basically helps high school seniors discover universities in the US where their probability of getting into is high.
 It uses students SAT score and zip code to recommend 10 universities with avearge SAT scores matching theirs.
 Students are only required to type in their SAT score and zip code, our algorithm then does all the heavy lifting :smiley:
